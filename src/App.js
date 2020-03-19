@@ -1,13 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {DisplayMapClass} from './DisplayMapClass';
 
 function App() {
   return (
-    <div className="App">
-
-    </div>
+  <DisplayMapClass />
   );
-}
+  }
+  export default App;
 
-export default App;
+
+
+
