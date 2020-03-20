@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 
 export class DisplayMapClass extends React.Component {
