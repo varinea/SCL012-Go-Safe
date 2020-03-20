@@ -1,13 +1,11 @@
 // src/DisplayMapClass.js
 import * as React from 'react';
 
-export class DisplayMapClass extends React.Component {
-  mapRef = React.createRef();
-
-  state = {
-    // The map instance to use during cleanup
-    map: null
-  };
+  export class DisplayMapClass extends React.Component {
+    mapRef = React.createRef();
+    state = {
+      map: null
+    };
 
   componentDidMount() {
 
@@ -18,29 +16,40 @@ export class DisplayMapClass extends React.Component {
 
     const defaultLayers = platform.createDefaultLayers();
 
-    // Create an instance of the map
+  // Crea una instancia del mapa
     const map = new H.Map(
       this.mapRef.current,
       defaultLayers.vector.normal.map,
       {
-        // This map is centered over Europe
+        // Este mapa está centrado en Europa
         center: { lat: 50, lng: 5 },
-        zoom: 4,
+        zoom: 10,
         pixelRatio: window.devicePixelRatio || 1
       }
     );
+
+   // MapEvents habilita el sistema de eventos
+   // Behavior implementa interacciones predeterminadas para pan / zoom (también en entornos táctiles móviles)
+   // Esta variable no se usa y está presente con fines explicativos
+    const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+
+    // Cree los componentes de la interfaz de usuario predeterminados para permitir que el usuario interactúe con ellos
+    // Esta variable no se usa
+    const ui = H.ui.UI.createDefault(map, defaultLayers);
+
+
 
     this.setState({ map });
   }
 
   componentWillUnmount() {
-    // Cleanup after the map to avoid memory leaks when this component exits the page
+    // Limpieza después del mapa para evitar pérdidas de memoria cuando este componente sale de la página
     this.state.map.dispose();
   }
 
   render() {
     return (
-      // Set a height on the map so it will display
+    // Establece una altura en el mapa para que se muestre
       <div ref={this.mapRef} style={{ height: "500px" }} />
     );
   }
