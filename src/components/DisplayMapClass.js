@@ -21,13 +21,14 @@ export class DisplayMapClass extends React.Component {
       defaultLayers.vector.normal.map, {
         // Este mapa está centrado en Europa
         center: {
-          lat: 50,
-          lng: 5
+          lat:  -33.4569397,
+          lng: -70.6482697
         },
         zoom: 10,
         pixelRatio: window.devicePixelRatio || 1
       }
     );
+
 
     // MapEvents habilita el sistema de eventos
     // Behavior implementa interacciones predeterminadas para pan / zoom (también en entornos táctiles móviles)
@@ -37,8 +38,6 @@ export class DisplayMapClass extends React.Component {
     // Cree los componentes de la interfaz de usuario predeterminados para permitir que el usuario interactúe con ellos
     // Esta variable no se usa
     const ui = H.ui.UI.createDefault(map, defaultLayers);
-
-
 
     this.setState({
       map
