@@ -1,13 +1,20 @@
-// src/DisplayMapClass.js
-import * as React from 'react';
+import React, { Component } from 'react';
 
-export class DisplayMapClass extends React.Component {
-  mapRef = React.createRef();
+const hereCredentials = {
+    id: 'BCARpYuX4JTbLbCE7nfW',
+    code: 'UsxeE6O5hDR3RWxAwgjnDA'
+}
 
-  state = {
-    // The map instance to use during cleanup
-    map: null
-  };
+const customRoutesURL = () => { `http://cre.api.here.com/2/overlays/upload.jso?map_name=OVERLAYBLOCKROAD&overlay_spec=[{"op":"override","shape":[[50.10765,8.68774],[50.10914,8.68771]],"layer":"LINK_ATTRIBUTE_FCN","data":{"VEHICLE_TYPES":"0"}}]&storage=readonly&app_id=${hereCredentials.id}&app_code=${hereCredentials.code}`
+}
+
+class DisplayMapClass extends Component {
+  constructor(props) {
+      super(props)
+      this.state ={
+
+      }
+  }
 
   componentDidMount() {
 
@@ -29,19 +36,6 @@ export class DisplayMapClass extends React.Component {
         pixelRatio: window.devicePixelRatio || 1
       }
     );
-      // evento Tap que crea marker y toma volores de geoposicion
-
-    let selecShape = []
-    map.addEventListener('tap', (event) => {
-      let position = map.screenToGeo(
-        event.currentPointer.viewportX,
-        event.currentPointer.viewportY
-      )
-      selecShape.push([position])
-      console.log(selecShape)
-      const marker = new H.map.Marker(position)
-      map.addObject(marker)
-  });
 
     this.setState({ map });
   }
@@ -58,3 +52,5 @@ export class DisplayMapClass extends React.Component {
     );
   }
 }
+
+export default DisplayMapClass;
