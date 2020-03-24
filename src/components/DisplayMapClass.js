@@ -29,6 +29,21 @@ export class DisplayMapClass extends React.Component {
       }
     );
 
+    //crea toma valores de geolocalizacion y crea marker en pantalla
+    // Add event listener:
+    let selecShape = []
+
+    map.addEventListener('tap', (event) => {
+        let position = map.screenToGeo(
+          event.currentPointer.viewportX,
+          event.currentPointer.viewportY
+        )
+        selecShape.push([position])
+        console.log(selecShape)
+        const marker = new H.map.Marker(position)
+        map.addObject(marker)
+    });
+
 
     // MapEvents habilita el sistema de eventos
     // Behavior implementa interacciones predeterminadas para pan / zoom (también en entornos táctiles móviles)
