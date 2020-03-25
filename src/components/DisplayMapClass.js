@@ -15,19 +15,34 @@ export class DisplayMapClass extends React.Component {
 
     const defaultLayers = platform.createDefaultLayers();
 
-    // Crea una instancia del mapa
+    // MAPA VECTORIAL BÁSICO 
     const map = new H.Map(
       this.mapRef.current,
       defaultLayers.vector.normal.map, {
-        // Este mapa está centrado en Europa
+        // Este mapa está centrado en Santiago
         center: {
           lat:  -33.4569397,
           lng: -70.6482697
         },
         zoom: 10,
-        pixelRatio: window.devicePixelRatio || 1
+        pixelRatio: window.devicePixelRatio || 0
       }
     );
+
+    //crea toma valores de geolocalizacion y crea marker en pantalla
+    // Add event listener:
+    let selecShape = []
+
+    map.addEventListener('tap', (event) => {
+        let position = map.screenToGeo(
+          event.currentPointer.viewportX,
+          event.currentPointer.viewportY
+        )
+        selecShape.push([position])
+        console.log(selecShape)
+        const marker = new H.map.Marker(position)
+        map.addObject(marker)
+    });
 
 
     // MapEvents habilita el sistema de eventos
@@ -58,7 +73,7 @@ export class DisplayMapClass extends React.Component {
       }
       style = {
         {
-          height: "500px"
+          height: "600px"
         }
       }
       />
