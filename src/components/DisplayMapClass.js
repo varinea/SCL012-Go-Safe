@@ -24,7 +24,7 @@ export class DisplayMapClass extends React.Component {
           lat:  -33.4569397,
           lng: -70.6482697
         },
-        zoom: 10,
+        zoom: 12,
         pixelRatio: window.devicePixelRatio || 0
       }
     );
