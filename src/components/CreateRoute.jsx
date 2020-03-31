@@ -5,7 +5,7 @@ import { Map, TileLayer, Marker } from 'react-leaflet'
 const hereAcces = {
   key: 'luAvmoHbQUvxSVLucOwLZlrXOQ9JvIjUWuYPjqU1nsY',
   id: 'BCARpYuX4JTbLbCE7nfW',
-  code: 'UsxeE6O5hDR3RWxAwgjnDA' 
+  code: 'UsxeE6O5hDR3RWxAwgjnDA'
 }
 
 //const H = window.H
