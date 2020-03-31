@@ -61,7 +61,7 @@ class CreateRoute extends Component {
     return (
       <div>
         <Map
-          center={center}
+         center={center}
           zoom={zoom}
           onClick={this.handleClick}          
           >
