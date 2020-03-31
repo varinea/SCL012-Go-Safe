@@ -16,7 +16,9 @@ class CreateRoute extends Component {
     this.state = {
 
       tapPosition:[],
-      markerPosition: {},
+      markerPosition: {
+        lat:null,
+        lng:null},
       polyline:[]
     }
   }
@@ -30,8 +32,9 @@ class CreateRoute extends Component {
     let polyPosition = {lat:event.latlng.lat, lng:event.latlng.lng}
     this.setState({polyline: [...this.state.polyline, polyPosition]})
 
-    let mPosition = event.latlng
-    this.setState({markerPosition: {...this.state.markerPosition, mPosition}})
+    let latPosition = event.latlng.lat
+    let lngPosition = event.latlng.lng
+    this.setState({markerPosition: {lat: latPosition, lng: lngPosition}})
 
     console.log(this.state.markerPosition)
   }
