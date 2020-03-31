@@ -11,7 +11,6 @@ const hereAcces = {
 //const H = window.H
 //const map = new H.Map
 
-
 class CreateRoute extends Component {
   constructor(props) {
     super(props);

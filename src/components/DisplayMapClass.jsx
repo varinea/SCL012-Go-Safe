@@ -109,7 +109,6 @@ class DisplayMapClass extends Component {
     //crea toma valores de geolocalizacion y crea marker en pantalla
     // Add event listener:
  
-
     map.addEventListener('tap', (event) => {
           let position = map.screenToGeo(
             event.currentPointer.viewportX,
