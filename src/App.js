@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import './App.css';
-import {DisplayMapClass} from './components/DisplayMapClass';
+import CreaateRoute from './components/CreateRoute'
 
 
-function App() {
+const App = () => {
+
   return (
-  <DisplayMapClass />
-  );
-  }
+    <Fragment>
+      <CreaateRoute />
+    
+    </Fragment> 
+   );
+}
   
-  export default App;
+export default App;
