@@ -1,57 +1,33 @@
-// src/DisplayMapClass.js
 import * as React from 'react';
-import { Map, TileLayer, Marker, Polyline } from 'react-leaflet'
 
-const hereAcces = {
-  key: 'luAvmoHbQUvxSVLucOwLZlrXOQ9JvIjUWuYPjqU1nsY',
-  id: 'BCARpYuX4JTbLbCE7nfW',
-  code: 'UsxeE6O5hDR3RWxAwgjnDA'
-}
-export class DisplayMapClass extends React.Component {
-  constructor(props) {
-    super(props);
-  this.mapRef = React.createRef();
-  this.handleClick= this.handleClick.bind(this)
-  this.newRoute= this.newRoute.bind(this)
-  this.componentDidMount= this.componentDidMount.bind(this)
-  this.componentWillUnmount= this.componentWillUnmount-bind(this)
+export const DisplayMapFC = () => {
+  // Crea una referencia al elemento HTML en el que queremos poner el mapa
+  const mapRef = React.useRef(null);
 
-  this.state = {
-    // The map instance to use during cleanup
-    
-    tapPosition:[],
-      markerPosition: {
-        lat:null,
-        lng:null},
-        map: null,
-      polyline:[]
-  }
-   }
-
-  componentDidMount() {
-
+  /**
+   * Crear la instancia del mapa
+   * Si bien `useEffect` también podría usarse aquí,` useLayoutEffect` representará
+   * el mapa antes
+   */
+  React.useLayoutEffect(() => {
+   // `mapRef.current` será` undefined` cuando este enlace se ejecute por primera vez; caso de borde que
+    if (!mapRef.current) return;
     const H = window.H;
     const platform = new H.service.Platform({
-        apikey: "{HERE-API-KEY}"
+      apikey: "{kgSdjqerT-AJ-VhQvIwifffAhb9AuVu7LK3gMkbIweA}"
+    });
+    const defaultLayers = platform.createDefaultLayers();
+    const hMap = new H.Map(mapRef.current, defaultLayers.vector.normal.map, {
+      center: {lat:-33.447487, lng:-70.673676},
+      zoom: 4,
+      pixelRatio: window.devicePixelRatio || 1
     });
 
-    const defaultLayers = platform.createDefaultLayers();
+    const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(hMap));
 
-    // Create an instance of the map
-    const map = new H.Map(
-      this.mapRef.current,
-      defaultLayers.vector.normal.map,
-      {
-        // This map is centered over Europe
-        center: { lat: 50, lng: 5 },
-        zoom: 4,
-        pixelRatio: window.devicePixelRatio || 1
-      }
-    );
+    const ui = H.ui.UI.createDefault(hMap, defaultLayers);
 
-    this.setState({ map });
-  }
-
+    
   handleClick(event) {
     //console.log(event.latlng.lat, event.latlng.lng)
     let position = [event.latlng.lat, event.latlng.lng]
@@ -92,18 +68,17 @@ export class DisplayMapClass extends React.Component {
 
   }
 
-  componentWillUnmount() {
-    // Cleanup after the map to avoid memory leaks when this component exits the page
-    this.state.map.dispose();
-  }
 
-  render() {
-    return (
-      // Set a height on the map so it will display
-      <div ref={this.mapRef} style={{ height: "500px" }} />
-    );
-  }
-}
+    // Esto actuará como una limpieza para ejecutarse una vez que este hOOK vuelva a ejecutarse.
+        // Esto incluye cuando el componente se desmonta
+    return () => {
+      hMap.dispose();
+    };
+  }, [mapRef]); // Esto ejecutará este enlace cada vez que se actualice esta referencia
+  onClick={this.handleClick} 
 
+  return <div className="map" ref={mapRef} style={{ height: "500px" }} />;
+  <button onClick={this.newRoute}>Crear Ruta</button>
+};
 
-export default DisplayMapClass;
+export default DisplayMapFC;
