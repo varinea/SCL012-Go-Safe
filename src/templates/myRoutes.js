@@ -1,13 +1,13 @@
 import React from 'react';
-import logoPequeño from '../pictures/logoPequeño.svg';
-import myHome from '../pictures/myHome.svg';
-import beachHouse from '../pictures/beachHouse.svg';
-import work from '../pictures/work.svg';
-import routeIcon from '../pictures/routeIcon.svg';
-import motherhIcon from '../pictures/motherhIcon.svg';
-import profile from '../pictures/profile.svg';
-import myrouteIcon from '../pictures/myrouteIcon.svg';
-import shareRoute from '../pictures/shareRoute.svg';
+import logoPequeño from './pictures/logoPequeño.svg';
+import myHome from './pictures/myHome.svg';
+import beachHouse from './pictures/beachHouse.svg';
+import work from './pictures/work.svg';
+import routeIcon from './pictures/routeIcon.svg';
+import motherhIcon from './pictures/motherhIcon.svg';
+import profile from './pictures/profile.svg';
+import myrouteIcon from './pictures/myrouteIcon.svg';
+import shareRoute from './pictures/shareRoute.svg';
 import './myRoutes.css'
 
 //import './homeRoutes.css'

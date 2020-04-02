@@ -1,8 +1,8 @@
 import React from 'react';
-import logoPequeño from '../pictures/logoPequeño.svg';
-import misRutas from '../pictures/misRutas.svg';
-import newRoute from '../pictures/newRoute.svg';
-import baraMenu from '../pictures/barraMenu.svg';
+import logoPequeño from './pictures/logoPequeño.svg';
+import misRutas from './pictures/misRutas.svg';
+import newRoute from './pictures/newRoute.svg';
+import baraMenu from './pictures/barraMenu.svg';
 import './homeRoutes.css'
 
 

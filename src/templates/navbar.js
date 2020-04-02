@@ -1,5 +1,5 @@
 import React from 'react';
-import bar from  '../pictures/barra.png';
+import bar from  './pictures/barra.png';
 import './navbar.css'
 
 const Navbar = () => {

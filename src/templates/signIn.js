@@ -1,8 +1,8 @@
 import React from 'react';
 // import Button from '../components/button';
-import Navbar from '../components/navbar';
+import Navbar from './navbar';
 //import Form from '../Components/form';
-import facebook from '../pictures/facebook.svg';
+import facebook from './pictures/facebook.svg';
 import './signIn.css'
 
 
