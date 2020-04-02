@@ -11,7 +11,6 @@ class Capture extends Component {
   }
 
 
-
 function capture {
     // Capturing area of the map is asynchronous, callback function receives HTML5 canvas
     // element with desired map area rendered on it.
