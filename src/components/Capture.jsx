@@ -1,6 +1,19 @@
 //TOMAR UNA FOTO
+import React, { Component } from 'react';
+import { resultContainer, map, ui } from 
 
-function capture(resultContainer, map, ui) {
+
+class Capture extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {name: "Guiadev"};
+  }
+
+ 
+
+
+function capture {
     // Capturing area of the map is asynchronous, callback function receives HTML5 canvas
     // element with desired map area rendered on it.
     // We also pass an H.ui.UI reference in order to see the ScaleBar in the output.
@@ -36,3 +49,13 @@ function capture(resultContainer, map, ui) {
   captureBtn.onclick = function () {
     capture(resultContainer, map, ui);
   }; 
+
+
+  render() {
+    return (
+      <div>
+        <h1>Hola, {this.state.name}!</h1>
+      </div>
+    );
+  }
+}
