@@ -67,7 +67,10 @@ export class DisplayMapClass extends React.Component {
   render() {
     return (
       // Establece una altura en el mapa para que se muestre
-      <div ref = { this.mapRef}
+      <
+      div ref = {
+        this.mapRef
+      }
       style = {
         {
           height: "500px"
@@ -77,5 +80,3 @@ export class DisplayMapClass extends React.Component {
     );
   }
 }
-
-export default DisplayMapClass;

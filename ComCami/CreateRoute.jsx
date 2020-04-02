@@ -70,7 +70,7 @@ class CreateRoute extends Component {
     return (
       <div>
         <Map
-         center={center}
+          center={center}
           zoom={zoom}
           onClick={this.handleClick}          
           >           
@@ -92,7 +92,6 @@ class CreateRoute extends Component {
                 
         </Map>
         <button onClick={this.newRoute}>Crear Ruta</button>
-        <button onClick={this.newRoute}>Capturar Ruta</button>
       </div>
     );
   }
