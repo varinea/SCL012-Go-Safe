@@ -26,7 +26,6 @@ export const DisplayMapFC = () => {
     const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(hMap));
 
     const ui = H.ui.UI.createDefault(hMap, defaultLayers);
-
     
   handleClick(event) {
     //console.log(event.latlng.lat, event.latlng.lng)
@@ -45,7 +44,6 @@ export const DisplayMapFC = () => {
   }
 
   async createPolyline (url){
-    
   }
 
   async newRoute() {
@@ -64,8 +62,6 @@ export const DisplayMapFC = () => {
 
     const data = await fetch (paramURL).then(res => res.json())
     console.log(data)
-
-
   }
 
 
