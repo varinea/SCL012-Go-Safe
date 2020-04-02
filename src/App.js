@@ -1,19 +1,8 @@
 import React, { Fragment } from 'react';
 import './App.css';
-import CreateRoute from './components/CreateRoute'
-import DisplayMapClass from './components/DisplayMapClass';
-//import {DisplayMapClass} from './components/DisplayMapClass';
-//import CreateRoute from './components/CreateRoute';
-//import Button from './components/button';
-//import Home from  './templates/home';
-//import Form from './components/Form';
-//import SignUp from './views/signUp'
-//import SignUp from './templates/signUp'
-//import SignIn from '../src/templates/signIn';
-//import SignUp from './templates/signUp';
-//import MyRoutes from './templates/myRoutes';
-//import HomeRoutes from './templates/homeRoutes'
- //import Login from './templates/login';
+import CreaateRoute from './components/CreateRoute'
+import DisplayMapClass from './components/DisplayMap'
+import ScreenCapture from './components/ScreenCapture'
 
 /*import {
   BrowserRouter as Router,
@@ -25,18 +14,19 @@ import DisplayMapClass from './components/DisplayMapClass';
 function App() {
   return (
     <Fragment>
-      <CreateRoute />
+      <CreaateRoute />
       <DisplayMapClass />
+      <ScreenCapture />
     
     </Fragment> 
   
-  );
+  )
   }
   
   export default App;
 
 
-   {/*class App extends Component {
+   /*class App extends Component {
     render() {
       return (
         <Router>
@@ -54,4 +44,4 @@ function App() {
   }
   
   export default App;
-*/}
+*/
