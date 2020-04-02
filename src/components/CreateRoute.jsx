@@ -1,56 +1,97 @@
 import React, { Component } from 'react';
+import { Map, TileLayer, Marker, Polyline } from 'react-leaflet'
 
-const hereCredentials = {
-    id: 'BCARpYuX4JTbLbCE7nfW',
-    code: 'UsxeE6O5hDR3RWxAwgjnDA'
+
+const hereAcces = {
+  key: 'luAvmoHbQUvxSVLucOwLZlrXOQ9JvIjUWuYPjqU1nsY',
+  id: 'BCARpYuX4JTbLbCE7nfW',
+  code: 'UsxeE6O5hDR3RWxAwgjnDA'
 }
 
-const customRoutesURL = () => { `http://cre.api.here.com/2/overlays/upload.jso?map_name=OVERLAYBLOCKROAD&overlay_spec=[{"op":"override","shape":[[50.10765,8.68774],[50.10914,8.68771]],"layer":"LINK_ATTRIBUTE_FCN","data":{"VEHICLE_TYPES":"0"}}]&storage=readonly&app_id=${hereCredentials.id}&app_code=${hereCredentials.code}`
-}
-
-class DisplayMapClass extends Component {
+class CreateRoute extends Component {
   constructor(props) {
-      super(props)
-      this.state ={
+    super(props);
+    this.handleClick= this.handleClick.bind(this)
+    this.newRoute= this.newRoute.bind(this)
+    this.state = {
 
-      }
+      tapPosition:[],
+      markerPosition: {},
+      polyline:[]
+    }
+  }
+  
+  handleClick(event) {
+    //console.log(event.latlng.lat, event.latlng.lng)
+    let position = [event.latlng.lat, event.latlng.lng]
+    console.log (position)
+    this.setState({tapPosition: [...this.state.tapPosition, position]}) 
+    
+    let polyPosition = {lat:event.latlng.lat, lng:event.latlng.lng}
+    this.setState({polyline: [...this.state.polyline, polyPosition]})
+
+    let mPosition = event.latlng
+    this.setState({markerPosition: {...this.state.markerPosition, mPosition}})
+
+    console.log(this.state.markerPosition)
   }
 
-  componentDidMount() {
-
-    const H = window.H;
-    const platform = new H.service.Platform({
-          apikey: "kgSdjqerT-AJ-VhQvIwifffAhb9AuVu7LK3gMkbIweA"
-    });
-
-    const defaultLayers = platform.createDefaultLayers();
-
-    // Create an instance of the map
-    const map = new H.Map(
-      this.mapRef.current,
-      defaultLayers.vector.normal.map,
-      {
-        // This map is centered over Europe
-        center: { lat: 50, lng: 5 },
-        zoom: 4,
-        pixelRatio: window.devicePixelRatio || 1
-      }
-    );
-
-    this.setState({ map });
+  async createPolyline (url){
+    
   }
 
-  componentWillUnmount() {
-    // Cleanup after the map to avoid memory leaks when this component exits the page
-    this.state.map.dispose();
+  async newRoute() {
+    
+    let shape = []
+    let shapeA = this.state.tapPosition.map(e => shape.push('['+e+']'))
+    let overlayName = 'OVERLAYTIER'
+    let paramURL = `http://cre.api.here.com/2/overlays/upload.json?map_name=${overlayName}&overlay_spec=[{"op":"override","shape":[${shape}],"layer":"LINK_ATTRIBUTE_FCN","data":{"VEHICLE_TYPES":"0"}}]&storage=readonly&app_id=${hereAcces.id}&app_code=${hereAcces.code}`
+
+    paramURL = paramURL.replace(/\[/g, '%5B')
+    paramURL = paramURL.replace(/\]/g, '%5D')
+    paramURL = paramURL.replace(/\{/g, '%7B')
+    paramURL = paramURL.replace(/\}/g, '%7D')
+
+    console.log(paramURL)
+
+    const data = await fetch (paramURL).then(res => res.json())
+    console.log(data)
+
+
   }
 
   render() {
+  
+    const center = {lat:-33.447487, lng:-70.673676}
+    const zoom = 12
     return (
-      // Set a height on the map so it will display
-      <div ref={this.mapRef} style={{ height: "500px" }} />
+      <div>
+        <Map
+          center={center}
+          zoom={zoom}
+          onClick={this.handleClick}          
+          >           
+            <TileLayer
+              attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
+            />
+            {this.state.polyline.length > 0 && 
+               
+             <Polyline 
+              positions= {this.state.polyline}
+              color='green'
+              weight={3}
+              > 
+              <Marker position={center} />
+              
+              </Polyline> 
+            }
+                
+        </Map>
+        <button onClick={this.newRoute}>Crear Ruta</button>
+      </div>
     );
   }
 }
 
-export default DisplayMapClass;
+export default CreateRoute;
