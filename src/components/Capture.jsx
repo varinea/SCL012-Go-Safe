@@ -10,7 +10,6 @@ class Capture extends Component {
     this.state = {name: "Guiadev"};
   }
 
- 
 
 
 function capture {

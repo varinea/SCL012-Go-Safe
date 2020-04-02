@@ -22,7 +22,6 @@ const CreateDos = () => {
             <h1>Funciona</h1>
         </div>
     )
-
 }
 
 
