@@ -14,7 +14,7 @@ const Home = () => {
     <img src={logoApp} alt="logo" className="logo"></img>
     <div className="homeTittle">
     <Breadcrumb>
-    <BreadcrumbItem><a href="/singin">INICIAR SESION</a></BreadcrumbItem>
+    <BreadcrumbItem><a  href="/singin">INICIAR SESION</a></BreadcrumbItem>
     <BreadcrumbItem><a href="/singup">REGISTRATE</a></BreadcrumbItem>
     </Breadcrumb>
     </div>
