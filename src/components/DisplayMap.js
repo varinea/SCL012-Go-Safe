@@ -14,14 +14,15 @@ let platform = new H.service.Platform({
 
 let defaultLayers = platform.createDefaultLayers();
 
+
 class DisplayMap extends React.Component {
-  captureRef = React.createRef();
-  mapRef = React.createRef();
+   captureRef = React.createRef();
+   mapRef = React.createRef();
    
    constructor(props) {
     super(props);
     this.newRoute= this.newRoute.bind(this);
-    this.newRoute= this.snapshot.bind(this)
+    this.newRoute= this.takeCapture.bind(this)
     
     this.state = {
 
@@ -38,7 +39,7 @@ class DisplayMap extends React.Component {
     let map = new H.Map(
       this.mapRef.current,
       defaultLayers.vector.normal.map, {
-        // Este mapa está centrado en Europa
+      // Mapa centrado en Santiago
         center: {
           lat:  -33.4569397,
           lng: -70.6482697
@@ -48,7 +49,7 @@ class DisplayMap extends React.Component {
       }
     );
 
-    //crea toma valores de geolocalizacion y crea marker en pantalla
+    //crea toma valores de geolocalizacion y crea marker en pantalla ademas 
 
     map.addEventListener('tap', (event) => {
         let position = map.screenToGeo(
@@ -83,9 +84,7 @@ class DisplayMap extends React.Component {
 
     });
 
-    // MapEvents habilita el sistema de eventos
     // Behavior implementa interacciones predeterminadas para pan / zoom (también en entornos táctiles móviles)
-    // Esta variable no se usa y está presente con fines explicativos
     const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
     // Cree los componentes de la interfaz de usuario predeterminados para permitir que el usuario interactúe con ellos
@@ -98,9 +97,17 @@ class DisplayMap extends React.Component {
 
   }  
 
-    async snapshot (resultContainer, map, ui) {
-    
-        await map.capture(function(canvas) {
+  // Toma aptura de ruta 
+    async takeCapture() {
+
+      let map = this.state.map.map
+      let ui = H.ui.UI.createDefault(map, defaultLayers);
+       
+      window.addEventListener('resize', () => map.getViewPort().resize());
+      
+      let resultContainer = this.captureRef.current
+      
+      map.capture(function(canvas) {
           if (canvas) {
             resultContainer.innerHTML = '';
             resultContainer.appendChild(canvas);
@@ -108,10 +115,11 @@ class DisplayMap extends React.Component {
             // For example when map is in Panorama mode
             resultContainer.innerHTML = 'Capturing is not supported';
           }
-        }, [ui], 50, 50, 500, 200);      
+        }, [ui]);        
 
     }
 
+    //toma valores de coordenadas geograficas y manda request a la API costume route para guardar overlay
     async newRoute() {
       
       let shape = []
@@ -124,42 +132,14 @@ class DisplayMap extends React.Component {
       paramURL = paramURL.replace(/\{/g, '%7B')
       paramURL = paramURL.replace(/\}/g, '%7D') 
     
-      let dataOverlay = await fetch (paramURL)
-      let data = await dataOverlay.json()
-      console.log(data)      
+      await fetch(paramURL).then(res => console.log(res.json()))      
       
-       let map = new H.Map(
-        this.mapRef.current,
-        defaultLayers.vector.normal.map, {
-          // Este mapa está centrado en Europa
-          center: {
-            lat:  -33.4569397,
-            lng: -70.6482697
-          },
-          zoom: 13,
-          pixelRatio: window.devicePixelRatio || 1
-        }
-      );       
+      this.takeCapture()     
+    }        
 
-        let ui = H.ui.UI.createDefault(map, defaultLayers);
-        // Step 1: initialize communication with the platform
-        let mapContainer = this.mapRef.current
-
-        // add a resize listener to make sure that the map occupies the whole container
-        window.addEventListener('resize', () => map.getViewPort().resize());
-        // Step 4: Create the default UI
-
-        // Step 6: Create "Capture" button and place for showing the captured area
-        let resultContainer = this.captureRef.current
-
-        this.snapshot(resultContainer, this.state.map, ui)
-
-    }
-        
   componentWillUnmount() {
     // Limpieza después del mapa para evitar pérdidas de memoria cuando este componente sale de la página
     this.state.map.dispose();
-
   }
  
   render() {

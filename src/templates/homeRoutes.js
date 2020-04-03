@@ -19,7 +19,7 @@ function HomeRoutes() {
   <div className="routes"> 
     <Link to="/myroutes" href="/DisplayMapClass"></Link><img src={misRutas} alt=""></img>
    
-    <Link to="/createroute"></Link><img src={newRoute} alt=""></img>
+    <Link to="/createRouter"></Link><img src={newRoute} alt=""></img>
   </div>
 
   <div className="grayPlace">  

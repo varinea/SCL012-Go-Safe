@@ -9,6 +9,7 @@ import SignIn from './templates/signIn';
 //import Login from './templates/login';
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import DisplayMap from './components/DisplayMap';
 
 function App() {
   return (
