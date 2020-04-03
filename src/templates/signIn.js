@@ -16,7 +16,6 @@ function SignIn(props) {
     await firebase.auth().signInWithEmailAndPassword(email,password);
   
   }
-  
 
   return (
   <div className="signInPage"> 
@@ -27,7 +26,7 @@ function SignIn(props) {
         <label htmlFor="password">Contraseña</label>
         <input type="password" id="password" onChange={ (ev)=> setPassword(ev.target.value) } />    
      
-        <Button className="buttonGreen"><a href="/homeroutes">Iniciar Sesión</a></Button>
+        <Button className="buttonGreen"><a href="/createRouter">Iniciar Sesión</a></Button>
     </div>
   </div>
   )

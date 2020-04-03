@@ -3,6 +3,7 @@ import './App.css';
 import Home from  './templates/home';
 import MyRoutes from './templates/myRoutes';
 import HomeRoutes from './templates/homeRoutes';
+import CreateRouter from './templates/createRouter';
 import SignUp from './templates/signUp';
 import SignIn from './templates/signIn';
 //import Login from './templates/login';
@@ -18,6 +19,7 @@ function App() {
         <Route path="/signup" component={SignUp}/>
         <Route path="/myroutes" exact component={MyRoutes}/>
         <Route path="/homeroutes" exact component={HomeRoutes}/>
+        <Route path="/createRouter" exact component={CreateRouter}/>
         <Route path="/" exact component={Home}/>     
          
       </Switch>

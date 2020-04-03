@@ -22,7 +22,6 @@ function HomeRoutes() {
     <Link to="/createroute"></Link><img src={newRoute} alt=""></img>
   </div>
 
-
   <div className="grayPlace">  
           <img  src={profile} alt="Icono de Perfil" ></img>
           <img  src={routeIcon} alt="Icono de ruta" ></img>
