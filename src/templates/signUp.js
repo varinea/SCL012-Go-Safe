@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import Navbar from '../templates/navbar';
 //import facebook from '../pictures/facebook.svg';
 import './signUp.css';
@@ -29,10 +30,10 @@ function SignUp(props) {
               
       
     <p className="conditions"> AL REGISTRARTE, ESTAS DE ACUERDO CON LOS TÉRMINOS Y CONDICIONES </p>
-    <button  className="btn btn-success"onClick={submit}>Regístrate</button> 
+    <button  className="btn btn-success"onClick={submit}><Link to="/signin">Registrarse</Link></button> 
     </div>
   </div>
   )
 }
 
-export default SignUp;
+export default withRouter(SignUp);

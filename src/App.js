@@ -1,34 +1,29 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import './App.css';
-import DisplayMap from './components/DisplayMap'
 import Home from  './templates/home';
 import MyRoutes from './templates/myRoutes';
 import HomeRoutes from './templates/homeRoutes';
-import logoApp from  './templates/pictures/Logo.jpeg';
-import SignUp from '../src/templates/signUp';
-import SignIn from '../src/templates/signIn';
+import SignUp from './templates/signUp'
+import SignIn from './templates/signIn';
 //import Login from './templates/login';
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-
 function App() {
-    return (   
-      <div>
-        <Home />
-        <SignIn />
-        <SignUp />
-        
-        <MyRoutes />
-        <HomeRoutes />
-        <logoApp />
-        
-        
+  return (
+   <Router>
+    <div>
+      <Switch>        
+        <Route path="/signin" component={SignIn}/>  
+        <Route path="/signup" component={SignUp}/>
+        <Route path="/myroutes" exact component={MyRoutes}/>
+        <Route path="/homeroutes" exact component={HomeRoutes}/>
+        <Route path="/" exact component={Home}/>         
+      </Switch>
+    </div>  
+   </Router>
+  );
+    
+}
 
-        <DisplayMap />
-      </div> 
-      );
-  }
-
-
-  export default App;
+export default App;
