@@ -16,7 +16,6 @@ import './myRoutes.css'
 function MyRoutes() {
   return (
   
-  
   <div className="homeRoutes"> 
     <div className="headRoute">	
         <img   src={logoPequeño} alt="logoPequeño"></img>

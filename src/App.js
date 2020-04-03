@@ -3,7 +3,7 @@ import './App.css';
 import Home from  './templates/home';
 import MyRoutes from './templates/myRoutes';
 import HomeRoutes from './templates/homeRoutes';
-import SignUp from './templates/signUp'
+import SignUp from './templates/signUp';
 import SignIn from './templates/signIn';
 //import Login from './templates/login';
 
@@ -18,7 +18,8 @@ function App() {
         <Route path="/signup" component={SignUp}/>
         <Route path="/myroutes" exact component={MyRoutes}/>
         <Route path="/homeroutes" exact component={HomeRoutes}/>
-        <Route path="/" exact component={Home}/>         
+        <Route path="/" exact component={Home}/>     
+         
       </Switch>
     </div>  
    </Router>

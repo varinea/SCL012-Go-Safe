@@ -8,7 +8,6 @@ import{
 FirebaseAppProvider
 } from 'reactfire';
 
-
 ReactDOM.render((
   <FirebaseAppProvider firebaseConfig={firebaseConfig}>
     <Suspense fallback={'Conectando con la App...'}>
