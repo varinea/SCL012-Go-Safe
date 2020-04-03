@@ -8,7 +8,9 @@ import profile from './pictures/profile.svg';
 import myrouteIcon from './pictures/myrouteIcon.svg';
 import shareRoute from './pictures/shareRoute.svg';
 import './homeRoutes.css'
+
 import './grayBar.css'
+
 
 
 function HomeRoutes() {
@@ -17,6 +19,7 @@ function HomeRoutes() {
     <img  className="littleBrand"  src={logoPequeño} alt="logoPequeño"></img>
     
   <div className="routes"> 
+
     <Link to="/myroutes" href="/DisplayMapClass"></Link><img src={misRutas} alt=""></img>
    
     <Link to="/createRouter"></Link><img src={newRoute} alt=""></img>

@@ -150,12 +150,14 @@ class DisplayMap extends React.Component {
       ref = {this.mapRef}
       style = {
         {
+
         
           width: "340px",
           textAlign: "center",
           border: "medium solid",
           color: "#3AAA35",
           height: "400px"
+
         }
       }
       >       
@@ -164,11 +166,13 @@ class DisplayMap extends React.Component {
       ref = {this.captureRef}
       style = {
         {
+
           height: "200px",
           width: "300px",
           textAlign: "center",
           border: "medium solid",
           color: "#3AAA35"
+
         }
       }
       >       

@@ -1,4 +1,6 @@
+
 @media screen and (max-width: 800px) {
+
 
 .homeRoutes{
   margin: 2%;
@@ -12,6 +14,7 @@
 
 .littleBrand
 {
+
   padding: 2% ;
   margin: 0% 0% 0% -80%;
 
@@ -29,6 +32,7 @@
   margin-top: 0%;
   padding-top: 0%;
   padding-bottom: 0%;
+
   text-align: center;
   display: flex;
   width: inherit;
@@ -36,6 +40,8 @@
 
 .rectangleG
 {
+
 margin-top: 0%;
 
 } }
+

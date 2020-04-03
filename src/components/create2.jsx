@@ -16,12 +16,13 @@ const CreateDos = () => {
         console.log(ruta)
         setPosition(ruta)
     }
-    
+
     return(
         <div>
             <h1>Funciona</h1>
         </div>
     )
+
 }
 
 

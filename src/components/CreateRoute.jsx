@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Map, TileLayer, Marker, Polyline } from 'react-leaflet'
 import { Icon } from 'leaflet'
 import gsIcon from './img/GoSafe-icon.png'
+
 //import Capture from './Capture'
+
 
 const hereAcces = {
   key: 'luAvmoHbQUvxSVLucOwLZlrXOQ9JvIjUWuYPjqU1nsY',
@@ -57,7 +59,6 @@ class CreateRoute extends Component {
     console.log(this.state.polyline)
     
   }
-  
 
   async newRoute() {
     
@@ -91,7 +92,9 @@ class CreateRoute extends Component {
     return (
       <div>
         <Map
+
          center={center}
+
           zoom={zoom}
           onClick={this.handleClick}          
           >           
@@ -115,8 +118,7 @@ class CreateRoute extends Component {
                />
               </div> 
             }
-            
-                
+               
         </Map>
         <button onClick={this.newRoute}>Crear Ruta</button>
       </div>
@@ -125,3 +127,5 @@ class CreateRoute extends Component {
 }
 
 export default CreateRoute;
+
+

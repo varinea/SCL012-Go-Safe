@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import Navbar from '../templates/navbar';
 import { Button } from 'reactstrap';
+
 //import facebook from '../pictures/facebook.svg';
 import './signUp.css';
 import 'firebase/auth';
@@ -17,12 +18,13 @@ function SignUp(props) {
   const submit = async ()=>{
     await  firebase.auth().createUserWithEmailAndPassword(email,password);
   } 
-  
+
   return (
   <div className="signUpPage">
     <Navbar/>
       <div className="orderPlace" >
         
+
         <label className="email"  htmlFor="email"> Correo Electrónico</label>
         <input className="email2" type="email" id="email" onChange={ (ev)=> setEmail(ev.target.value) }   />
         <label htmlFor="password">Contraseña</label>
@@ -35,6 +37,7 @@ function SignUp(props) {
     <Button className="buttonGreen" onClick={submit}><Link to="/signin">Registrarse</Link></Button> 
     </div>
     
+
     </div>
   </div>
   )
