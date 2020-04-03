@@ -36,7 +36,7 @@ function MyRoutes(props) {
   		</div>
   		<div id="motherH"  className="Place1">
       		<img className="imgWork" src={motherhIcon} alt=" Casa mamá"></img>  
-      		<p> Casa  mamá</p>
+      		<p> Casa mamá</p>
   		</div>
          
    </div>    
@@ -46,8 +46,6 @@ function MyRoutes(props) {
           <img  src={myrouteIcon} alt="Icono de mis rutas" ></img>
           <img  src={shareRoute} alt="Icono de compartir" ></img>
         </div>
-
-       
 
   </div>
 

@@ -5,7 +5,7 @@ import SignIn from './signIn';
 import logoApp from  './pictures/logoApp.png';
 //import Button from '../components/button';
 import './home.css'
-
+import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 
 const Home = () => {
   return (
@@ -13,8 +13,11 @@ const Home = () => {
   <div className="homeContent">
     <img src={logoApp} alt="logo" className="logo"></img>
     <div className="homeTittle">
-    <p> <Link to="/singin">INICIAR SESION</Link></p>
+    <Breadcrumb>
+    <BreadcrumbItem><a href="/singin">INICIAR SESION</a></BreadcrumbItem>
+  
     <p> <Link to="/singup">REGISTRATE</Link></p>
+    </Breadcrumb>
     </div>
   </div>
 
