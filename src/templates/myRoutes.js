@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import logoPequeño from './pictures/logoPequeño.svg';
 import myHome from './pictures/myHome.svg';
 import beachHouse from './pictures/beachHouse.svg';
@@ -12,7 +13,7 @@ import './myRoutes.css'
 
 //import './homeRoutes.css'
 
-function MyRoutes(props) {
+function MyRoutes() {
   return (
   
   
@@ -46,16 +47,9 @@ function MyRoutes(props) {
           <img  src={myrouteIcon} alt="Icono de mis rutas" ></img>
           <img  src={shareRoute} alt="Icono de compartir" ></img>
         </div>
-
-       
-
   </div>
-
-   
   
-
-   
   )
 }
 
-export default MyRoutes;
+export default withRouter(MyRoutes);

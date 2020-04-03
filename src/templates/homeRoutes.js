@@ -1,22 +1,23 @@
 import React from 'react';
-import logoPequeño from '../templates/pictures/logoPequeño.svg';
-import misRutas from '../templates/pictures/misRutas.svg';
-import newRoute from '../templates/pictures/newRoute.svg';
-import routeIcon from '../templates/pictures/routeIcon.svg';
-import profile from '../templates/pictures/profile.svg';
-import myrouteIcon from '../templates/pictures/myrouteIcon.svg';
-import shareRoute from '../templates/pictures/shareRoute.svg';
+import { Link, withRouter } from "react-router-dom";
+import logoPequeño from './pictures/logoPequeño.svg';
+import misRutas from './pictures/misRutas.svg';
+import newRoute from './pictures/newRoute.svg';
+import routeIcon from './pictures/routeIcon.svg';
+import profile from './pictures/profile.svg';
+import myrouteIcon from './pictures/myrouteIcon.svg';
+import shareRoute from './pictures/shareRoute.svg';
 import './homeRoutes.css'
 
 
-function HomeRoutes(props) {
+function HomeRoutes() {
   return (
   <div className="homeRoutes"> 
     <img  className="littleBrand"  src={logoPequeño} alt="logoPequeño"></img>
     
-  <div className="routes">
-    <img src={misRutas} alt="misRutas"></img>
-    <img src={newRoute} alt="nuevaRuta"></img>
+  <div className="routes"> 
+    <Link to="/myroutes"></Link><img src={misRutas} alt=""></img>
+    <Link to="/createroute"></Link><img src={newRoute} alt=""></img>
   </div>
   <div className="grayPlace">  
           <img  src={profile} alt="Icono de Perfil" ></img>
@@ -28,7 +29,7 @@ function HomeRoutes(props) {
   )
 }
 
-export default HomeRoutes;
+export default  withRouter(HomeRoutes);
 
 
 

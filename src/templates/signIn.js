@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 // import Button from '../components/button';
 import Navbar from '../templates/navbar';
 import { useFirebaseApp} from 'reactfire';
@@ -23,12 +24,11 @@ function SignIn(props) {
         <label htmlFor="email"> Correo Electrónico</label>
         <input type="email" id="email" onChange={ (ev)=> setEmail(ev.target.value) }   />
         <label htmlFor="password">Contraseña</label>
-        <input type="password" id="password" onChange={ (ev)=> setPassword(ev.target.value) } />
-    
-        <button className="btn btn-success" onClick={login}>Iniciar Sesión </button>
+        <input type="password" id="password" onChange={ (ev)=> setPassword(ev.target.value) } />    
+        <button className="btn btn-success" onClick={login}><Link to="/homeroutes">Iniciar Sesión</Link></button>
     </div>
   </div>
   )
 }
 
-export default SignIn;
+export default withRouter(SignIn);
