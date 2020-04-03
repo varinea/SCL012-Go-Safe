@@ -15,8 +15,7 @@ const Home = () => {
     <div className="homeTittle">
     <Breadcrumb>
     <BreadcrumbItem><a href="/singin">INICIAR SESION</a></BreadcrumbItem>
-  
-    <p> <Link to="/singup">REGISTRATE</Link></p>
+    <BreadcrumbItem><a href="/singup">REGISTRATE</a></BreadcrumbItem>
     </Breadcrumb>
     </div>
   </div>
