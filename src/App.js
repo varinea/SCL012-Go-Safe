@@ -8,12 +8,14 @@ import SignIn from './templates/signIn';
 //import Login from './templates/login';
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import DisplayMap from './components/DisplayMap';
 
 
 function App() {
   return (
    <Router>
     <div>
+      <DisplayMap />
       <Switch>        
         <Route path="/signin" component={SignIn}/>  
         <Route path="/signup" component={SignUp}/>
